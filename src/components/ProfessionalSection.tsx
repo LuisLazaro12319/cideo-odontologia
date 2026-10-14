@@ -92,7 +92,7 @@ export const ProfessionalSection: React.FC = () => {
                             {m.name ?? 'Nombre y apellido'}
                           </h3>
                           <p className="text-sm text-blue-700 font-semibold mt-0.5">
-                            {principal ? `${m.role} · ${CLINIC.name}` : CLINIC.name}
+                            {m.name ? `${m.role} · ${CLINIC.name}` : CLINIC.name}
                           </p>
                         </div>
                       </div>

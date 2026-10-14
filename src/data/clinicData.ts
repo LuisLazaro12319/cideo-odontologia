@@ -70,11 +70,11 @@ export interface TeamMember {
 
 // Equipo de trabajo del consultorio. Completar nombre y foto de cada integrante.
 export const TEAM: TeamMember[] = [
-  { role: 'Odontólogo', name: 'Dr. Pinciroli', photo: null },
+  { role: 'Odontólogo', name: 'Dr. Pinciroli', photo: 'images/dr-pinciroli.jpg' },
   {
     role: 'Odontóloga',
     name: 'Dra. Pignataro',
-    photo: null,
+    photo: 'images/dra-pignataro.jpg',
     bio: 'Atiende en CIDEO Odontología junto al Dr. Pinciroli. Escribinos por WhatsApp para coordinar tu turno.',
   },
 ];
