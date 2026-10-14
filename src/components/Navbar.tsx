@@ -45,18 +45,18 @@ export const Navbar: React.FC = () => {
   return (
     <>
       {/* Barra superior con el estado del consultorio en tiempo real */}
-      <div className="bg-teal-100 text-teal-900 text-xs py-1.5 px-4 border-b border-teal-200">
+      <div className="bg-blue-100 text-blue-900 text-xs py-1.5 px-4 border-b border-blue-200">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1.5 text-teal-900">
-              <MapPin className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+            <span className="flex items-center gap-1.5 text-blue-900">
+              <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0" />
               <span>
                 {CLINIC.street}, {CLINIC.locality}
               </span>
             </span>
-            <span className="hidden md:inline text-teal-300">·</span>
-            <span className="hidden md:flex items-center gap-1.5 text-teal-700">
-              <Clock className="w-3.5 h-3.5 text-teal-700 shrink-0" />
+            <span className="hidden md:inline text-blue-300">·</span>
+            <span className="hidden md:flex items-center gap-1.5 text-blue-700">
+              <Clock className="w-3.5 h-3.5 text-blue-700 shrink-0" />
               <span>Hora local: {hora} hs</span>
             </span>
           </div>
@@ -65,14 +65,14 @@ export const Navbar: React.FC = () => {
             <span className="inline-flex items-center gap-1.5 font-medium">
               <span className={`w-2 h-2 rounded-full ${status.isOpen ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`} />
               <span className={status.isOpen ? 'text-emerald-700' : 'text-amber-700'}>{status.badge}</span>
-              {status.detail && <span className="text-teal-700 hidden lg:inline">({status.detail})</span>}
+              {status.detail && <span className="text-blue-700 hidden lg:inline">({status.detail})</span>}
             </span>
-            <span className="text-teal-300">·</span>
+            <span className="text-blue-300">·</span>
             <a
               href={CLINIC.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-teal-800 hover:text-teal-950 transition-colors flex items-center gap-1.5"
+              className="text-blue-800 hover:text-blue-950 transition-colors flex items-center gap-1.5"
             >
               <InstagramIcon className="w-3.5 h-3.5 text-[#e1306c]" />
               <span>{CLINIC.instagramHandle}</span>
@@ -83,22 +83,22 @@ export const Navbar: React.FC = () => {
 
       {/* Encabezado principal en degradado azul */}
       <header
-        className="sticky top-0 z-50 text-teal-950 bg-gradient-to-r from-teal-400 via-emerald-300 to-teal-400 shadow-lg shadow-teal-500/30"
+        className="sticky top-0 z-50 text-blue-950 bg-gradient-to-r from-blue-400 via-sky-300 to-blue-400 shadow-lg shadow-blue-500/30"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-6">
           <a
             href="#top"
             onClick={irArriba}
-            className="flex items-center gap-3 text-teal-950 transition-opacity hover:opacity-95 shrink-0"
+            className="flex items-center gap-3 text-blue-950 transition-opacity hover:opacity-95 shrink-0"
           >
-            <div className="w-9 h-9 rounded-full bg-white/50 border border-white/70 flex items-center justify-center font-bold text-teal-950 tracking-widest text-sm shadow-inner">
+            <div className="w-9 h-9 rounded-full bg-white/50 border border-white/70 flex items-center justify-center font-bold text-blue-950 tracking-widest text-sm shadow-inner">
               {CLINIC.initials}
             </div>
             <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-teal-950 leading-none">
+              <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-blue-950 leading-none">
                 {CLINIC.name}
               </span>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-teal-900 font-medium leading-tight mt-1">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-blue-900 font-medium leading-tight mt-1">
                 {CLINIC.locationLabel}
               </span>
             </div>
@@ -111,14 +111,14 @@ export const Navbar: React.FC = () => {
                 href={l.href}
                 onClick={l.href === '#top' ? irArriba : undefined}
                 className={`text-[14px] transition-colors whitespace-nowrap ${
-                  i === 0 ? 'font-bold text-teal-950' : 'font-medium text-teal-950/80 hover:text-teal-950'
+                  i === 0 ? 'font-bold text-blue-950' : 'font-medium text-blue-950/80 hover:text-blue-950'
                 }`}
               >
                 {l.label}
               </a>
             ))}
 
-            <span className="flex items-center gap-2.5 pl-3 border-l border-teal-950/20">
+            <span className="flex items-center gap-2.5 pl-3 border-l border-blue-950/20">
               <a
                 href={CLINIC.instagramUrl}
                 target="_blank"
@@ -146,7 +146,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setOpen(!open)}
-              className="lg:hidden p-1.5 text-teal-950 hover:text-teal-800"
+              className="lg:hidden p-1.5 text-blue-950 hover:text-blue-800"
               aria-label="Abrir menú"
             >
               {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -155,21 +155,21 @@ export const Navbar: React.FC = () => {
         </div>
 
         {open && (
-          <div className="lg:hidden bg-teal-50 border-t border-teal-200 px-6 py-5 space-y-3">
+          <div className="lg:hidden bg-blue-50 border-t border-blue-200 px-6 py-5 space-y-3">
             <div className="flex flex-col space-y-3 text-sm">
               {LINKS.map((l, i) => (
                 <a
                   key={l.href}
                   href={l.href}
                   onClick={l.href === '#top' ? irArriba : () => setOpen(false)}
-                  className={`text-left py-1 ${i === 0 ? 'text-teal-950 font-bold' : 'text-teal-900/80 hover:text-teal-950'}`}
+                  className={`text-left py-1 ${i === 0 ? 'text-blue-950 font-bold' : 'text-blue-900/80 hover:text-blue-950'}`}
                 >
                   {l.label}
                 </a>
               ))}
             </div>
 
-            <div className="pt-4 border-t border-teal-200 flex flex-col gap-2.5">
+            <div className="pt-4 border-t border-blue-200 flex flex-col gap-2.5">
               <a
                 href={whatsappUrl(TURNO_MSG)}
                 target="_blank"
@@ -192,9 +192,9 @@ export const Navbar: React.FC = () => {
                 href={CLINIC.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-2 bg-teal-100 text-teal-900 rounded-full text-xs font-semibold"
+                className="w-full flex items-center justify-center gap-2 py-2 bg-blue-100 text-blue-900 rounded-full text-xs font-semibold"
               >
-                <MapPin className="w-4 h-4 text-teal-700" />
+                <MapPin className="w-4 h-4 text-blue-700" />
                 <span>Ver en Google Maps</span>
               </a>
             </div>

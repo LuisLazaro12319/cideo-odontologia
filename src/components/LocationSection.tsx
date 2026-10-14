@@ -18,20 +18,20 @@ export const LocationSection: React.FC = () => {
   return (
     <section
       id="ubicacion"
-      className="py-14 md:py-20 lg:py-24 bg-gradient-to-b from-white to-teal-50 border-b border-teal-100"
+      className="py-14 md:py-20 lg:py-24 bg-gradient-to-b from-white to-blue-50 border-b border-blue-100"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Título con el mismo estilo que las demás secciones: grande, centrado y con degradado */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
-            <span className="bg-gradient-to-r from-teal-700 via-teal-600 to-emerald-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-sky-500 bg-clip-text text-transparent">
               Dónde estamos
             </span>
           </h2>
-          <div className="mx-auto mt-4 mb-6 h-1.5 w-20 rounded-full bg-gradient-to-r from-teal-500 to-emerald-400" />
+          <div className="mx-auto mt-4 mb-6 h-1.5 w-20 rounded-full bg-gradient-to-r from-blue-500 to-sky-400" />
           <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mb-1">
             {CLINIC.street},{' '}
-            <span className="bg-gradient-to-r from-teal-600 to-emerald-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">
               {CLINIC.locality}
             </span>
           </h3>
@@ -39,10 +39,10 @@ export const LocationSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-5 rounded-3xl bg-white border border-teal-100 shadow-lg shadow-teal-900/5 p-6 sm:p-8 space-y-6">
+          <div className="lg:col-span-5 rounded-3xl bg-white border border-blue-100 shadow-lg shadow-blue-900/5 p-6 sm:p-8 space-y-6">
             <div className="flex items-center justify-between gap-3 pb-5 border-b border-slate-100">
               <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
-                <Clock className="w-4 h-4 text-teal-700" />
+                <Clock className="w-4 h-4 text-blue-700" />
                 <span>Horarios de atención</span>
               </div>
               <span
@@ -64,12 +64,12 @@ export const LocationSection: React.FC = () => {
                   <div
                     key={d.dayName}
                     className={`flex items-center justify-between py-1.5 px-3 rounded-lg ${
-                      hoy ? 'bg-teal-50 font-semibold text-teal-900 border border-teal-100' : ''
+                      hoy ? 'bg-blue-50 font-semibold text-blue-900 border border-blue-100' : ''
                     }`}
                   >
                     <span>
                       {d.dayName}
-                      {hoy && <span className="ml-2 text-[11px] text-teal-700">(hoy)</span>}
+                      {hoy && <span className="ml-2 text-[11px] text-blue-700">(hoy)</span>}
                     </span>
                     <span className="font-mono text-xs">
                       {d.open && d.close ? `${d.open} - ${d.close}` : 'Cerrado'}
@@ -85,7 +85,7 @@ export const LocationSection: React.FC = () => {
                 href={CLINIC.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 text-white text-xs font-bold shadow-md shadow-teal-500/25 transition-all"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-gradient-to-r from-blue-500 to-sky-500 hover:from-blue-600 hover:to-sky-600 text-white text-xs font-bold shadow-md shadow-blue-500/25 transition-all"
               >
                 <Navigation className="w-3.5 h-3.5" />
                 <span>Cómo llegar</span>
@@ -109,7 +109,7 @@ export const LocationSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-7 rounded-3xl border border-teal-100 shadow-lg shadow-teal-900/5 overflow-hidden h-[440px] relative">
+          <div className="lg:col-span-7 rounded-3xl border border-blue-100 shadow-lg shadow-blue-900/5 overflow-hidden h-[440px] relative">
             <iframe
               title={`Ubicación de ${CLINIC.name}`}
               src={`https://www.google.com/maps?q=${lat},${lng}&z=17&hl=es&output=embed`}
@@ -121,7 +121,7 @@ export const LocationSection: React.FC = () => {
               className="w-full h-full"
             />
             <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-slate-200 shadow-lg flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-teal-700 text-white flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center shrink-0">
                 <MapPin className="w-4 h-4" />
               </div>
               <div>

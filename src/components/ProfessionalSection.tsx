@@ -22,10 +22,10 @@ export const ProfessionalSection: React.FC = () => {
   };
 
   return (
-    <section id="profesional" className="relative py-16 lg:py-24 bg-white border-b border-emerald-100 overflow-hidden">
+    <section id="profesional" className="relative py-16 lg:py-24 bg-white border-b border-sky-100 overflow-hidden">
       <div
         aria-hidden="true"
-        className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-emerald-100/70 blur-3xl pointer-events-none"
+        className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-sky-100/70 blur-3xl pointer-events-none"
       />
       <div
         aria-hidden="true"
@@ -36,11 +36,11 @@ export const ProfessionalSection: React.FC = () => {
         {/* Título de la sección, centrado y arriba */}
         <div className="text-center mb-6 lg:mb-8">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
-            <span className="bg-gradient-to-r from-teal-700 via-teal-600 to-emerald-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-sky-500 bg-clip-text text-transparent">
               Nosotros
             </span>
           </h2>
-          <div className="mx-auto mt-4 h-1.5 w-20 rounded-full bg-gradient-to-r from-teal-500 to-emerald-400" />
+          <div className="mx-auto mt-4 h-1.5 w-20 rounded-full bg-gradient-to-r from-blue-500 to-sky-400" />
         </div>
 
         {/* Carrusel: una tarjeta por persona, todas con el mismo diseño.
@@ -63,14 +63,14 @@ export const ProfessionalSection: React.FC = () => {
                   <div className="lg:col-span-5">
                     <div className="max-w-md mx-auto">
                       <p className="text-center mb-5">
-                        <span className="inline-block px-3.5 py-1.5 rounded-full bg-teal-50 text-teal-700 border border-emerald-200 text-xs font-bold uppercase tracking-wider">
+                        <span className="inline-block px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-sky-200 text-xs font-bold uppercase tracking-wider">
                           {m.role}
                         </span>
                       </p>
 
                       <div className="relative">
-                        <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-teal-400 via-emerald-300 to-teal-600 opacity-80 blur-sm" />
-                        <div className="relative rounded-[1.75rem] overflow-hidden bg-emerald-100 shadow-2xl shadow-teal-900/20 aspect-square">
+                        <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-blue-400 via-sky-300 to-blue-600 opacity-80 blur-sm" />
+                        <div className="relative rounded-[1.75rem] overflow-hidden bg-sky-100 shadow-2xl shadow-blue-900/20 aspect-square">
                           {foto ? (
                             <img
                               src={foto}
@@ -79,19 +79,19 @@ export const ProfessionalSection: React.FC = () => {
                               className="w-full h-full object-cover"
                             />
                           ) : (
-                            <div className="w-full h-full bg-gradient-to-br from-teal-50 to-emerald-100 flex flex-col items-center justify-center gap-2 text-teal-400">
-                              <div className="w-24 h-24 rounded-full border-2 border-dashed border-teal-300 flex items-center justify-center">
+                            <div className="w-full h-full bg-gradient-to-br from-blue-50 to-sky-100 flex flex-col items-center justify-center gap-2 text-blue-400">
+                              <div className="w-24 h-24 rounded-full border-2 border-dashed border-blue-300 flex items-center justify-center">
                                 <UserRound className="w-11 h-11" />
                               </div>
                               <span className="text-xs font-semibold">Foto del integrante</span>
                             </div>
                           )}
                         </div>
-                        <div className="relative -mt-8 mx-6 rounded-2xl bg-white shadow-xl shadow-teal-900/10 border border-emerald-100 px-5 py-4 text-center">
+                        <div className="relative -mt-8 mx-6 rounded-2xl bg-white shadow-xl shadow-blue-900/10 border border-sky-100 px-5 py-4 text-center">
                           <h3 className={`text-xl font-extrabold ${m.name ? 'text-slate-900' : 'text-slate-400 italic'}`}>
                             {m.name ?? 'Nombre y apellido'}
                           </h3>
-                          <p className="text-sm text-teal-700 font-semibold mt-0.5">
+                          <p className="text-sm text-blue-700 font-semibold mt-0.5">
                             {principal ? `${m.role} · ${CLINIC.name}` : CLINIC.name}
                           </p>
                         </div>
@@ -104,7 +104,7 @@ export const ProfessionalSection: React.FC = () => {
                       <>
                         <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
                           Atención personalizada en{' '}
-                          <span className="bg-gradient-to-r from-teal-600 to-emerald-500 bg-clip-text text-transparent">
+                          <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">
                             {CLINIC.locality}
                           </span>
                         </h3>
@@ -125,8 +125,8 @@ export const ProfessionalSection: React.FC = () => {
                               {CLINIC.googleRating} en Google ({CLINIC.googleReviews} opiniones)
                             </span>
                           </a>
-                          <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-teal-50 text-teal-900 border border-emerald-200">
-                            <MapPin className="w-4 h-4 text-teal-600" />
+                          <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blue-50 text-blue-900 border border-sky-200">
+                            <MapPin className="w-4 h-4 text-blue-600" />
                             <span>
                               {CLINIC.street}, {CLINIC.locality}
                             </span>
@@ -136,7 +136,7 @@ export const ProfessionalSection: React.FC = () => {
                     ) : (
                       <>
                         <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
-                          <span className="bg-gradient-to-r from-teal-600 to-emerald-500 bg-clip-text text-transparent">
+                          <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">
                             {m.role}
                           </span>
                         </h3>
@@ -150,7 +150,7 @@ export const ProfessionalSection: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => irA(1)}
-                        className="hidden md:inline-flex items-center gap-1.5 px-5 py-3.5 text-sm font-bold text-teal-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-xl transition-colors cursor-pointer"
+                        className="hidden md:inline-flex items-center gap-1.5 px-5 py-3.5 text-sm font-bold text-blue-800 bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-xl transition-colors cursor-pointer"
                       >
                         <span>Conocé al equipo</span>
                         <ChevronRight className="w-4 h-4" />
@@ -171,7 +171,7 @@ export const ProfessionalSection: React.FC = () => {
               onClick={() => irA(activo - 1)}
               disabled={activo === 0}
               aria-label="Anterior"
-              className="w-10 h-10 rounded-full border border-emerald-200 bg-white text-teal-800 flex items-center justify-center hover:bg-emerald-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
+              className="w-10 h-10 rounded-full border border-sky-200 bg-white text-blue-800 flex items-center justify-center hover:bg-sky-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -185,7 +185,7 @@ export const ProfessionalSection: React.FC = () => {
                   aria-label={m.name ?? m.role}
                   onClick={() => irA(i)}
                   className={`h-2.5 rounded-full transition-all cursor-pointer ${
-                    activo === i ? 'w-8 bg-teal-600' : 'w-2.5 bg-emerald-200 hover:bg-emerald-300'
+                    activo === i ? 'w-8 bg-blue-600' : 'w-2.5 bg-sky-200 hover:bg-sky-300'
                   }`}
                 />
               ))}
@@ -195,7 +195,7 @@ export const ProfessionalSection: React.FC = () => {
               onClick={() => irA(activo + 1)}
               disabled={activo === TEAM.length - 1}
               aria-label="Siguiente"
-              className="w-10 h-10 rounded-full border border-emerald-200 bg-white text-teal-800 flex items-center justify-center hover:bg-emerald-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
+              className="w-10 h-10 rounded-full border border-sky-200 bg-white text-blue-800 flex items-center justify-center hover:bg-sky-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
             >
               <ChevronRight className="w-5 h-5" />
             </button>

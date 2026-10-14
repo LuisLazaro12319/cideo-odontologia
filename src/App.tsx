@@ -11,7 +11,7 @@ import { CLINIC, whatsappUrl } from './data/clinicData';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-teal-100 selection:text-teal-900">
+    <div className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
       <Navbar />
       <main>
         <Hero />

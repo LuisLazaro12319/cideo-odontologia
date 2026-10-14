@@ -25,7 +25,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-teal-500 via-teal-400 to-emerald-300 text-white min-h-[680px] sm:min-h-[760px] lg:min-h-[88vh] flex flex-col">
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-500 via-blue-400 to-sky-300 text-white min-h-[680px] sm:min-h-[760px] lg:min-h-[88vh] flex flex-col">
       {/* Video de fondo (si no carga, queda el degradado celeste) */}
       <video
         ref={videoRef}
@@ -40,9 +40,9 @@ export const Hero: React.FC = () => {
       />
 
       {/* Capas suaves: solo oscurecen donde está el texto, el resto del video se ve completo */}
-      <div className="absolute inset-0 bg-teal-900/10 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-teal-800/65 via-teal-700/25 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-teal-800/35 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-blue-900/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-800/65 via-blue-700/25 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-blue-800/35 to-transparent pointer-events-none" />
 
       <div className="absolute top-5 right-5 z-20">
         <button
@@ -69,7 +69,7 @@ export const Hero: React.FC = () => {
             style={{ textWrap: 'balance' }}
           >
             {CLINIC.headline}{' '}
-            <span className="bg-gradient-to-r from-emerald-200 to-teal-100 bg-clip-text text-transparent [text-shadow:none]">
+            <span className="bg-gradient-to-r from-sky-200 to-blue-100 bg-clip-text text-transparent [text-shadow:none]">
               {CLINIC.headlineHighlight}
             </span>
           </h1>
@@ -97,7 +97,7 @@ export const Hero: React.FC = () => {
             </a>
             <a
               href="#tratamientos"
-              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm sm:px-6 sm:py-4 sm:text-base sm:gap-2 font-semibold text-teal-900 bg-white hover:bg-teal-50 rounded-xl shadow-lg shadow-teal-950/20 transition-all hover:-translate-y-0.5 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm sm:px-6 sm:py-4 sm:text-base sm:gap-2 font-semibold text-blue-900 bg-white hover:bg-blue-50 rounded-xl shadow-lg shadow-blue-950/20 transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
               <span>Ver tratamientos</span>
               <ArrowRight className="w-4 h-4" />
@@ -106,11 +106,11 @@ export const Hero: React.FC = () => {
 
           <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-semibold [text-shadow:none]">
             <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/90 text-slate-900 shadow-sm">
-              <Clock className="w-4 h-4 text-teal-600" />
+              <Clock className="w-4 h-4 text-blue-600" />
               <span>{CLINIC.hoursSummary}</span>
             </div>
             <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/90 text-slate-900 shadow-sm">
-              <MapPin className="w-4 h-4 text-teal-600" />
+              <MapPin className="w-4 h-4 text-blue-600" />
               <span>
                 {CLINIC.street}, {CLINIC.locality}
               </span>
@@ -129,7 +129,7 @@ export const Hero: React.FC = () => {
                 key={h.title}
                 className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 text-center sm:text-left"
               >
-                <span className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center">
+                <span className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
                   <Icono className="w-5 h-5 sm:w-6 sm:h-6" />
                 </span>
                 <span>
