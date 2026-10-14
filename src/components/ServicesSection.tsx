@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Activity,
   Anchor,
+  ChevronLeft,
+  ChevronRight,
   ArrowUpRight,
   Crown,
   Gem,
@@ -170,6 +172,120 @@ const CintaServicios: React.FC = () => {
   );
 };
 
+/** En computadora: máximo 3 filas x 2 columnas por página; si hay más tratamientos, se desliza por páginas. */
+const POR_PAGINA = 6;
+
+const GrillaServicios: React.FC = () => {
+  const pista = useRef<HTMLDivElement>(null);
+  const [activa, setActiva] = useState(0);
+
+  const paginas = Array.from({ length: Math.ceil(SERVICES.length / POR_PAGINA) }, (_, i) =>
+    SERVICES.slice(i * POR_PAGINA, (i + 1) * POR_PAGINA)
+  );
+
+  const alScrollear = () => {
+    const el = pista.current;
+    if (!el || el.clientWidth === 0) return;
+    setActiva(Math.round(el.scrollLeft / el.clientWidth));
+  };
+
+  const irA = (i: number) => {
+    const el = pista.current;
+    if (!el) return;
+    const destino = Math.max(0, Math.min(paginas.length - 1, i));
+    el.scrollTo({ left: destino * el.clientWidth, behavior: 'smooth' });
+  };
+
+  return (
+    <div>
+      <div
+        ref={pista}
+        onScroll={alScrollear}
+        className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory scroll-smooth"
+      >
+        {paginas.map((pagina, p) => (
+          <div key={p} className="basis-full w-full min-w-0 grow-0 shrink-0 snap-center px-3 py-3">
+            <div className="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {pagina.map((service) => {
+                const e = ESTILOS[service.icon];
+                return (
+                  <div
+                    key={service.id}
+                    className="group relative bg-white rounded-2xl border border-slate-100 p-6 flex flex-col justify-between shadow-md shadow-teal-900/5 hover:shadow-xl hover:shadow-teal-900/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                  >
+                    <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${e.barra}`} />
+                    <div className="flex items-start gap-4">
+                      <div
+                        className={`w-12 h-12 shrink-0 rounded-2xl bg-gradient-to-br ${e.badge} flex items-center justify-center shadow-lg`}
+                      >
+                        {e.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-slate-900 leading-snug mb-1">{service.name}</h3>
+                        <p className="text-sm text-slate-600 leading-relaxed">{service.description}</p>
+                      </div>
+                    </div>
+
+                    <div className="pt-4 mt-4 border-t border-slate-100">
+                      <a
+                        href={whatsappUrl(`Hola! Quisiera consultar por ${service.name} en ${CLINIC.name}.`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-1.5 text-sm font-bold transition-colors ${e.link}`}
+                      >
+                        <span>Consultar por WhatsApp</span>
+                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {paginas.length > 1 && (
+        <div className="flex items-center justify-center gap-4 mt-4">
+          <button
+            type="button"
+            onClick={() => irA(activa - 1)}
+            disabled={activa === 0}
+            aria-label="Tratamientos anteriores"
+            className="w-10 h-10 rounded-full border border-emerald-200 bg-white text-teal-800 flex items-center justify-center hover:bg-emerald-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <div className="flex items-center gap-2" role="tablist" aria-label="Páginas de tratamientos">
+            {paginas.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                role="tab"
+                aria-selected={activa === i}
+                aria-label={`Página ${i + 1}`}
+                onClick={() => irA(i)}
+                className={`h-2.5 rounded-full transition-all cursor-pointer ${
+                  activa === i ? 'w-8 bg-teal-600' : 'w-2.5 bg-emerald-200 hover:bg-emerald-300'
+                }`}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => irA(activa + 1)}
+            disabled={activa === paginas.length - 1}
+            aria-label="Más tratamientos"
+            className="w-10 h-10 rounded-full border border-emerald-200 bg-white text-teal-800 flex items-center justify-center hover:bg-emerald-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const ServicesSection: React.FC = () => {
   return (
     <section
@@ -201,40 +317,9 @@ export const ServicesSection: React.FC = () => {
           <CintaServicios />
         </div>
 
-        {/* Pantallas grandes: grilla de tarjetas */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES.map((service) => {
-            const e = ESTILOS[service.icon];
-            return (
-              <div
-                key={service.id}
-                className="group relative bg-white rounded-2xl border border-slate-100 p-7 flex flex-col justify-between shadow-md shadow-teal-900/5 hover:shadow-xl hover:shadow-teal-900/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-              >
-                <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${e.barra}`} />
-                <div>
-                  <div
-                    className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${e.badge} flex items-center justify-center shadow-lg mb-5`}
-                  >
-                    {e.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 leading-snug mb-2">{service.name}</h3>
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">{service.description}</p>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-slate-100">
-                  <a
-                    href={whatsappUrl(`Hola! Quisiera consultar por ${service.name} en ${CLINIC.name}.`)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-1.5 text-sm font-bold transition-colors ${e.link}`}
-                  >
-                    <span>Consultar por WhatsApp</span>
-                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </a>
-                </div>
-              </div>
-            );
-          })}
+        {/* Pantallas grandes: 3 filas x 2 columnas por página, con carrusel si hay más tratamientos */}
+        <div className="hidden md:block">
+          <GrillaServicios />
         </div>
       </div>
     </section>
