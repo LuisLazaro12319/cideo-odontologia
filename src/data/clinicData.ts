@@ -26,7 +26,8 @@ export const CLINIC = {
   // Foto del consultorio o de los profesionales (ruta dentro de /public). Sin foto, se muestra un recuadro reservado.
   photo: null as string | null,
   // Textos que se repiten en el inicio, el pie y la descripción para Google.
-  servicesSummary: 'estética odontológica, odontología integral, escaneo digital y atención de urgencias',
+  servicesSummary:
+    'estética odontológica, odontología integral, ortodoncia, prótesis, implantes, escaneo digital y atención de urgencias',
   // Medios de pago: sin confirmar para este consultorio.
   paymentMethods: [] as string[],
   hoursSummary: 'Lunes a jueves de 9 a 20 hs',
@@ -75,6 +76,54 @@ export const SERVICES: DentalService[] = [
     name: 'Odontología integral',
     description: 'Revisión y cuidado de tu salud bucal de forma completa, con un plan pensado para vos.',
     icon: 'stethoscope',
+  },
+  {
+    id: 'limpieza',
+    name: 'Limpieza dental',
+    description: 'Remoción de sarro y placa para mantener tus encías y tus dientes sanos.',
+    icon: 'smile',
+  },
+  {
+    id: 'operatoria',
+    name: 'Operatoria dental (caries)',
+    description: 'Arreglo de caries y restauraciones para devolverle forma y función a tus dientes.',
+    icon: 'stethoscope',
+  },
+  {
+    id: 'conducto',
+    name: 'Tratamiento de conducto',
+    description: 'Endodoncia para conservar tu diente cuando el nervio está afectado.',
+    icon: 'activity',
+  },
+  {
+    id: 'exodoncia',
+    name: 'Exodoncia',
+    description: 'Extracción de piezas dentales cuando es necesaria, con indicaciones claras para el después.',
+    icon: 'shield',
+  },
+  {
+    id: 'ortodoncia',
+    name: 'Ortodoncia y ortopedia',
+    description: 'Corrección de la posición de los dientes y acompañamiento del desarrollo de los maxilares.',
+    icon: 'sparkles',
+  },
+  {
+    id: 'protesis',
+    name: 'Prótesis',
+    description: 'Reposición de piezas dentales, fijas o removibles, para recuperar la masticación y la sonrisa.',
+    icon: 'layers',
+  },
+  {
+    id: 'corona',
+    name: 'Coronas, perno y poste',
+    description: 'Reconstrucción y cobertura de piezas dentales para devolverles forma, tamaño y resistencia.',
+    icon: 'crown',
+  },
+  {
+    id: 'implantes',
+    name: 'Implantes',
+    description: 'Reposición de piezas dentales con implantes para recuperar la función y la estética.',
+    icon: 'gem',
   },
   {
     id: 'escaneo',
